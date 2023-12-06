@@ -1,20 +1,28 @@
-const myLibrary = [];
+let myLibrary = [];
+const libraryShowcase = document.querySelector(".library-showcase");
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, status) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = read;
+  this.status = status;
   this.info = function () {
     return this.readStatus === "yes"
       ? "I have already read this book!"
-      : "I´havent read this book yet!";
+      : "I´haven´t read this book yet!";
   };
 }
 
 let book1 = new Book("Ivo", "sauter", 220, "yes");
 let book2 = new Book("Miriam", "Rossig", 110, "yes");
 let book3 = new Book("Nadia", "Sauter", 300, "no");
+
+function addBookToLibrary(title, author, pages, status) {
+  const book = new Book(title, author, pages, status);
+  myLibrary.push(book);
+}
+
+function showLibrary() {}
 
 console.log(book1, book2, book3);
 
