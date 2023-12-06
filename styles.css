@@ -1,5 +1,19 @@
 .library-table {
+  display: flex;
+  flex-wrap: wrap;
   width: 100vw;
   height: 100vh;
   background-color: aqua;
+}
+
+.newBookEntry {
+  width: 200px;
+  height: 200px;
+  padding: 2rem;
+  margin: 2rem;
+  background-color: black;
+}
+
+.title {
+  color: white;
 }

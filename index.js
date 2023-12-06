@@ -1,5 +1,5 @@
 let myLibrary = [];
-const libraryShowcase = document.querySelector(".library-showcase");
+const libraryTable = document.querySelector(".library-table");
 
 function Book(title, author, pages, status) {
   this.title = title;
@@ -22,7 +22,15 @@ function addBookToLibrary(title, author, pages, status) {
   myLibrary.push(book);
 }
 
-function showLibrary() {}
+function showLibrary() {
+  const test = document.createElement("div");
+  const title = document.createElement("h1");
+  title.textContent = book1.title;
+  title.classList.add("title");
+  test.appendChild(title);
+  test.classList.add("newBookEntry");
+  libraryTable.appendChild(test);
+}
 
 console.log(book1, book2, book3);
 
@@ -37,4 +45,8 @@ function Book(title, author, pages, read) {
         this.read === "yes" ? "I read that book" : "I dont read that book";
       return `${title} by ${author}, ${pages} pages, ${readStatus}`;
     };
-  }*/
+  }
+  
+  addBookToLibrary("aa","aa",22,"no")
+  
+  */
