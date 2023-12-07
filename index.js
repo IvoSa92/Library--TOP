@@ -10,6 +10,7 @@ const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const submitBtn = document.querySelector("#submit");
 const readStatusCheckbox = document.querySelector("#read-status");
+const overlay = document.querySelector(".overlay");
 
 // Functions:
 
@@ -22,17 +23,19 @@ function Book(title, author, pages, status) {
     return this.status === "yes" ? true : false;
   };
 }
-
+//function to add new book to the library array
 function addBookToLibrary(title, author, pages, status) {
   const book = new Book(title, author, pages, status);
   myLibrary.push(book);
 }
 
+//new book form function
 newBookBtn.addEventListener("click", () => {
   bookInputForm.style.display = "flex";
   document.querySelector(".overlay").style.display = "block";
 });
 
+//submit button functions
 submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
   const title = titleInput.value;
@@ -46,6 +49,8 @@ submitBtn.addEventListener("click", (event) => {
   bookInputForm.style.display = "none";
   showLibrary();
 });
+
+//function for displaying the books
 
 function showLibrary() {
   libraryTable.innerHTML = "";
@@ -97,3 +102,10 @@ function showLibrary() {
     libraryTable.appendChild(bookContainer);
   }
 }
+
+// Function to click anywhere outside of the form so the form disappears
+
+overlay.addEventListener("click", () => {
+  bookInputForm.style.display = "none";
+  overlay.style.display = "none";
+});

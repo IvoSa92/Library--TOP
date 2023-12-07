@@ -1,15 +1,21 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ece2d0;
+  background-image: url(./images/janko-ferlic-sfL_QOnmy00-unsplash.jpg);
+  background-size: cover;
 }
 
 .library-title {
   font-family: Montserrat;
   font-size: 5rem;
   text-decoration: underline;
-  color: #6b092a;
+  color: #f5e9ba;
   text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1),
     10px 20px 5px rgba(0, 0, 0, 0.05), -10px 20px 5px rgba(0, 0, 0, 0.05);
 }
@@ -29,8 +35,8 @@
   align-items: center;
   border: 3px solid #8b4513;
   border-radius: 10px;
-  background-color: #5c4033a1;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  background-color: #5c4033f7;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.4);
   width: 20rem;
   height: 20rem;
   margin: 2rem;
@@ -56,7 +62,7 @@
   color: whitesmoke;
 }
 .new-book-button {
-  background-color: #d3a588;
+  background-color: #d39067;
   border: none;
   margin: 1rem;
   padding: 1rem;
@@ -94,7 +100,7 @@
   color: #5c4033;
   border: 3px solid #8b4513;
   background-color: #fff8dc;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.4);
   border-radius: 8px;
   padding: 1rem;
 }
