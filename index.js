@@ -1,18 +1,4 @@
-let myLibrary = [
-  //   {
-  //     title: "A Game of Thrones",
-  //     author: "George R. R. Martin",
-  //     pages: 694,
-  //     status: true,
-  //   },
-  //   {
-  //     title: "Mein Kampf",
-  //     author: "Adolf hitler",
-  //     pages: 666,
-  //     status: true,
-  //   },
-  //   { title: "Ein Buch halt", author: "Someone", pages: 23, status: false },
-];
+let myLibrary = [];
 
 //DOM OBJECTS:
 
@@ -61,17 +47,6 @@ submitBtn.addEventListener("click", (event) => {
   showLibrary();
 });
 
-/* 
-const test = document.querySelector(".reading-status-div");
-test.addEventListener("change", () => {
-  if (this.checked) {
-    myLibrary[0].status === true;
-  } else {
-    myLibrary[0].status = false;
-  }
-});
-*/
-
 function showLibrary() {
   libraryTable.innerHTML = "";
   for (let i = 0; i < myLibrary.length; i++) {
@@ -83,7 +58,6 @@ function showLibrary() {
     const showReadingStatusText = document.createElement("p");
     const showCheckbox = document.createElement("input");
     const deleteButton = document.createElement("button");
-    const bookCount = i;
 
     showTitle.textContent = myLibrary[i].title;
     showTitle.classList.add("title");
@@ -94,8 +68,12 @@ function showLibrary() {
     showPages.textContent = myLibrary[i].pages;
     showPages.classList.add("pages");
 
-    showReadingStatusText.textContent = myLibrary[i].status;
+    showReadingStatusText.textContent = "Book read?";
     showReadingStatus.appendChild(showReadingStatusText);
+
+    showCheckbox.addEventListener("change", () => {
+      myLibrary[i].status = showCheckbox.checked;
+    });
 
     showCheckbox.type = "checkbox";
     showCheckbox.checked = myLibrary[i].status === true;
@@ -104,7 +82,7 @@ function showLibrary() {
 
     deleteButton.textContent = "Delete Book";
     deleteButton.addEventListener("click", () => {
-      myLibrary.splice(i);
+      myLibrary.splice(i, 1);
       showLibrary();
     });
 
