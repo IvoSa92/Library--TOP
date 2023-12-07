@@ -60,7 +60,7 @@ submitBtn.addEventListener("click", (event) => {
   showLibrary();
 });
 
-function showLibrary() {
+/*function showLibrary() {
   const bookContainer = document.createElement("div");
   const showTitle = document.createElement("h1");
   const showAuthor = document.createElement("h2");
@@ -93,8 +93,7 @@ function showLibrary() {
   bookContainer.classList.add("newBookEntry");
 
   libraryTable.appendChild(bookContainer);
-}
-showLibrary();
+}*/
 
 /* 
 const test = document.querySelector(".reading-status-div");
@@ -106,3 +105,42 @@ test.addEventListener("change", () => {
   }
 });
 */
+
+function showLibrary() {
+  for (let i = 0; i < myLibrary.length; i++) {
+    const bookContainer = document.createElement("div");
+    const showTitle = document.createElement("h1");
+    const showAuthor = document.createElement("h2");
+    const showPages = document.createElement("p");
+    const showReadingStatus = document.createElement("div");
+    const showReadingStatusText = document.createElement("p");
+    const showCheckbox = document.createElement("input");
+
+    showTitle.textContent = myLibrary[i].title;
+    showTitle.classList.add("title");
+
+    showAuthor.textContent = myLibrary[i].author;
+    showAuthor.classList.add("author");
+
+    showPages.textContent = myLibrary[i].pages;
+    showPages.classList.add("pages");
+
+    showReadingStatusText.textContent = myLibrary[i].status;
+    showReadingStatus.appendChild(showReadingStatusText);
+
+    showCheckbox.type = "checkbox";
+    showCheckbox.checked = myLibrary[i].status === true;
+    showReadingStatus.appendChild(showCheckbox);
+    showReadingStatus.classList.add("reading-status-div");
+
+    bookContainer.appendChild(showTitle);
+    bookContainer.appendChild(showAuthor);
+    bookContainer.appendChild(showPages);
+    bookContainer.appendChild(showReadingStatus);
+    bookContainer.classList.add("newBookEntry");
+
+    libraryTable.appendChild(bookContainer);
+  }
+}
+
+showLibrary();
