@@ -53,7 +53,7 @@
 
 .book-input-form {
   align-items: center;
-  display: flex;
+  display: none; /* die eigenschaft ändern um die form sichtbar zu machen*/
   flex-direction: column;
   gap: 10px;
   border-style: solid;
