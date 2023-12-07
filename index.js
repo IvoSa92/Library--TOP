@@ -3,15 +3,15 @@ let myLibrary = [
     title: "A Game of Thrones",
     author: "George R. R. Martin",
     pages: 694,
-    read: "no",
+    status: true,
   },
   {
     title: "Mein Kampf",
     author: "Adolf hitler",
     pages: 666,
-    read: "yes",
+    status: true,
   },
-  { title: "Ein Buch halt", author: "Someone", pages: 23, read: "no" },
+  { title: "Ein Buch halt", author: "Someone", pages: 23, status: false },
 ];
 
 //DOM OBJECTS:
@@ -33,9 +33,7 @@ function Book(title, author, pages, status) {
   this.pages = pages;
   this.status = status;
   this.info = function () {
-    return this.status === "yes"
-      ? "I have already read this book!"
-      : "I´haven´t read this book yet!";
+    return this.status === "yes" ? true : false;
   };
 }
 
@@ -53,10 +51,58 @@ submitBtn.addEventListener("click", (event) => {
   const title = titleInput.value;
   const author = authorInput.value;
   const pages = pagesInput.value;
-  const status = readStatusCheckbox.checked ? "yes" : "no";
+  const status = readStatusCheckbox.checked ? true : false;
 
   addBookToLibrary(title, author, pages, status);
   bookInputForm.reset();
   bookInputForm.style.display = "none";
   console.log(myLibrary);
+  showLibrary();
 });
+
+function showLibrary() {
+  const bookContainer = document.createElement("div");
+  const showTitle = document.createElement("h1");
+  const showAuthor = document.createElement("h2");
+  const showPages = document.createElement("p");
+  const showReadingStatus = document.createElement("div");
+  const showReadingStatusText = document.createElement("p");
+  const showCheckbox = document.createElement("input");
+
+  showTitle.textContent = myLibrary[0].title;
+  showTitle.classList.add("title");
+
+  showAuthor.textContent = myLibrary[0].author;
+  showAuthor.classList.add("author");
+
+  showPages.textContent = myLibrary[0].pages;
+  showPages.classList.add("pages");
+
+  showReadingStatusText.textContent = myLibrary[0].status;
+  showReadingStatus.appendChild(showReadingStatusText);
+
+  showCheckbox.type = "checkbox";
+  showCheckbox.checked = myLibrary[0].status === true;
+  showReadingStatus.appendChild(showCheckbox);
+  showReadingStatus.classList.add("reading-status-div");
+
+  bookContainer.appendChild(showTitle);
+  bookContainer.appendChild(showAuthor);
+  bookContainer.appendChild(showPages);
+  bookContainer.appendChild(showReadingStatus);
+  bookContainer.classList.add("newBookEntry");
+
+  libraryTable.appendChild(bookContainer);
+}
+showLibrary();
+
+/* 
+const test = document.querySelector(".reading-status-div");
+test.addEventListener("change", () => {
+  if (this.checked) {
+    myLibrary[0].status === true;
+  } else {
+    myLibrary[0].status = false;
+  }
+});
+*/
