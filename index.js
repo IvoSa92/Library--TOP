@@ -1,5 +1,25 @@
-let myLibrary = [];
+let myLibrary = [
+  {
+    title: "A Game of Thrones",
+    author: "George R. R. Martin",
+    pages: 694,
+    read: "no",
+  },
+  {
+    title: "Mein Kampf",
+    author: "Adolf hitler",
+    pages: 666,
+    read: "yes",
+  },
+  { title: "Ein Buch halt", author: "Someone", pages: 23, read: "no" },
+];
+
+//DOM OBJECTS:
+
 const libraryTable = document.querySelector(".library-table");
+const newBookBtn = document.querySelector(".new-book-button");
+
+// Functions:
 
 function Book(title, author, pages, status) {
   this.title = title;
@@ -13,26 +33,12 @@ function Book(title, author, pages, status) {
   };
 }
 
-let book1 = new Book("Ivo", "sauter", 220, "yes");
-let book2 = new Book("Miriam", "Rossig", 110, "yes");
-let book3 = new Book("Nadia", "Sauter", 300, "no");
-
 function addBookToLibrary(title, author, pages, status) {
   const book = new Book(title, author, pages, status);
   myLibrary.push(book);
 }
 
-function showLibrary() {
-  const test = document.createElement("div");
-  const title = document.createElement("h1");
-  title.textContent = book1.title;
-  title.classList.add("title");
-  test.appendChild(title);
-  test.classList.add("newBookEntry");
-  libraryTable.appendChild(test);
-}
-
-console.log(book1, book2, book3);
+newBookBtn.addEventListener("click");
 
 /*
 function Book(title, author, pages, read) {
@@ -49,4 +55,14 @@ function Book(title, author, pages, read) {
   
   addBookToLibrary("aa","aa",22,"no")
   
+
+  function showLibrary() {
+  const test = document.createElement("div");
+  const title = document.createElement("h1");
+  title.textContent = book1.title;
+  title.classList.add("title");
+  test.appendChild(title);
+  test.classList.add("newBookEntry");
+  libraryTable.appendChild(test);
+}
   */

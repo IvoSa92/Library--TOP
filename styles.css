@@ -1,5 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .library-table {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   width: 100vw;
   height: 100vh;
@@ -16,4 +23,49 @@
 
 .title {
   color: white;
+}
+
+.new-book-button {
+  background-color: coral;
+  border: none;
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 10em;
+  height: 4rem;
+  border-radius: 1rem;
+  color: whitesmoke;
+  box-shadow: 0 0.4rem #dfd9d9;
+  cursor: pointer;
+}
+
+.new-book-button:active {
+  color: white;
+  box-shadow: 0 0.2rem #dfd9d9;
+  transform: translateY(0.2rem);
+}
+
+.new-book-button:hover {
+  background: rgb(246, 106, 56);
+  color: white;
+  text-shadow: 0 0.1rem #bcb4b4;
+}
+
+.book-input-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-style: solid;
+  padding: 1rem;
+}
+
+.reading-status {
+  display: flex;
+  align-items: center;
+}
+
+.book-input {
+  width: 15rem;
+  height: 1.5rem;
 }
