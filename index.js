@@ -30,6 +30,7 @@ function addBookToLibrary(title, author, pages, status) {
 
 newBookBtn.addEventListener("click", () => {
   bookInputForm.style.display = "flex";
+  document.querySelector(".overlay").style.display = "block";
 });
 
 submitBtn.addEventListener("click", (event) => {
@@ -40,10 +41,9 @@ submitBtn.addEventListener("click", (event) => {
   const status = readStatusCheckbox.checked ? true : false;
 
   addBookToLibrary(title, author, pages, status);
-
+  document.querySelector(".overlay").style.display = "none";
   bookInputForm.reset();
   bookInputForm.style.display = "none";
-  console.log(myLibrary);
   showLibrary();
 });
 
@@ -65,7 +65,7 @@ function showLibrary() {
     showAuthor.textContent = myLibrary[i].author;
     showAuthor.classList.add("author");
 
-    showPages.textContent = myLibrary[i].pages;
+    showPages.textContent = myLibrary[i].pages + " Pages";
     showPages.classList.add("pages");
 
     showReadingStatusText.textContent = "Book read?";
@@ -80,7 +80,8 @@ function showLibrary() {
     showReadingStatus.appendChild(showCheckbox);
     showReadingStatus.classList.add("reading-status-div");
 
-    deleteButton.textContent = "Delete Book";
+    deleteButton.classList.add("delete-button");
+    deleteButton.textContent = "Delete";
     deleteButton.addEventListener("click", () => {
       myLibrary.splice(i, 1);
       showLibrary();

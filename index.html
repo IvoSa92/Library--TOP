@@ -13,6 +13,7 @@
   </head>
   <body>
     <div class="container">
+      <div class="overlay"></div>
       <h1 class="library-title">Book Library</h1>
       <button class="new-book-button">New Book</button>
       <form class="book-input-form">
@@ -35,13 +36,13 @@
           type="number"
           name="pages"
           id="pages"
-          class="book-input"
+          class="pages-input"
           required />
         <div class="reading-status">
-          <p>Finishes reading?</p>
+          <p>Finished reading?</p>
           <input type="checkbox" name="read-status" id="read-status" />
         </div>
-        <input type="submit" id="submit" />
+        <button type="submit" id="submit">Submit</button>
       </form>
       <div class="library-table"></div>
     </div>
