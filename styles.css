@@ -192,3 +192,11 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 50;
 }
+
+input:invalid {
+  background-color: rgba(233, 117, 111, 0.28);
+}
+
+input:valid {
+  background-color: rgba(177, 232, 177, 0.311);
+}

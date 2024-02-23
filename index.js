@@ -36,7 +36,7 @@ newBookBtn.addEventListener("click", () => {
 });
 
 //submit button functions
-submitBtn.addEventListener("click", (event) => {
+bookInputForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const title = titleInput.value;
   const author = authorInput.value;
